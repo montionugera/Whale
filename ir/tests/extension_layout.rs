@@ -2,7 +2,7 @@ use ir::{
     allocation_align_for_target, layout_for_target, verify_module_for_target, DataLayout, Endian,
     IrLimits, Module, Type,
 };
-use whale_target::{MemoryModel, OutputKind, StorageLayout, TargetSpec};
+use target_spec::{MemoryModel, OutputKind, StorageLayout, TargetSpec};
 
 fn target() -> TargetSpec {
     TargetSpec {

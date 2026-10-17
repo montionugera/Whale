@@ -229,7 +229,7 @@ pub fn verify_module_with_stats(
 /// Verify against an explicitly supplied target contract; no global registry is used.
 pub fn verify_module_for_target(
     m: &Module,
-    target: &whale_target::TargetSpec,
+    target: &target_spec::TargetSpec,
     limits: crate::IrLimits,
 ) -> Result<(), VerifyError> {
     verify_module_for_target_with_stats(m, target, limits).map(|_| ())
@@ -237,7 +237,7 @@ pub fn verify_module_for_target(
 
 pub fn verify_module_for_target_with_stats(
     m: &Module,
-    target: &whale_target::TargetSpec,
+    target: &target_spec::TargetSpec,
     limits: crate::IrLimits,
 ) -> Result<VerificationStats, VerifyError> {
     crate::limits::check_module(m, limits).map_err(VerifyError::ResourceLimit)?;

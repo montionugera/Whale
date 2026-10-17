@@ -1,5 +1,5 @@
+use amd64::AMD64;
 use assembler::assembler::assemble;
-use whale_assembler_amd64::AMD64;
 
 #[test]
 fn large_bss_and_section_reentry_keep_logical_label_offsets_without_payload() {

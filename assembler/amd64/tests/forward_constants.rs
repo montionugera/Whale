@@ -1,5 +1,5 @@
+use amd64::AMD64;
 use assembler::assemble;
-use whale_assembler_amd64::AMD64;
 
 #[test]
 fn forward_constants_match_backward_definitions_without_relocations() {

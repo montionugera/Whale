@@ -1,5 +1,5 @@
+use amd64::AMD64;
 use assembler::{assemble, SymbolKind, SymbolVisibility};
-use whale_assembler_amd64::AMD64;
 
 #[test]
 fn metadata_supports_forward_declarations_equ_sizes_and_local_labels() {

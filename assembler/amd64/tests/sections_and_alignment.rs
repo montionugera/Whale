@@ -1,5 +1,5 @@
+use amd64::AMD64;
 use assembler::{assemble, assemble_with_limits, AsmSectionKind, AssemblyLimits};
-use whale_assembler_amd64::AMD64;
 
 fn error(src: &str) -> String {
     assemble(src, &AMD64).err().unwrap_or_else(|| panic!("accepted {src}")).to_string()

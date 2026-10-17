@@ -1,5 +1,5 @@
+use amd64::AMD64;
 use assembler::{assemble, assemble_with_limits, AssemblyLimits, RelocKind};
-use whale_assembler_amd64::AMD64;
 
 fn limited(
     src: &str,

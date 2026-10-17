@@ -1,5 +1,5 @@
-use whale_assembler_amd64::AMD64;
-use whale_diagnostic::{Context, ToDiagnostic};
+use amd64::AMD64;
+use diagnostic::{Context, ToDiagnostic};
 
 #[test]
 fn stable_assembler_codes_preserve_primary_and_related_utf8_ranges() {

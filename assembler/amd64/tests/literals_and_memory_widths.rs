@@ -1,5 +1,5 @@
+use amd64::AMD64;
 use assembler::{assemble, RelocKind};
-use whale_assembler_amd64::AMD64;
 
 fn bytes(source: &str) -> Vec<u8> {
     assemble(source, &AMD64)

@@ -1,8 +1,8 @@
 // SPDX-License-Identifier: MPL-2.0
 //! Statically linked, out-of-tree code generation. This is a Rust API, not a dylib ABI.
+use diagnostic::{Context, Diagnostic, ToDiagnostic};
 use std::collections::BTreeSet;
-use whale_diagnostic::{Context, Diagnostic, ToDiagnostic};
-use whale_target::TargetSpec;
+use target_spec::TargetSpec;
 
 pub enum Requirement<'a> {
     Type(&'a ir::Type),

@@ -4,7 +4,7 @@ use std::time::Instant;
 
 use super::debug::dump_bytes;
 
-use whale_assembler_amd64::parser::parse;
+use amd64::parser::parse;
 
 use assembler::tokens::tokenize;
 

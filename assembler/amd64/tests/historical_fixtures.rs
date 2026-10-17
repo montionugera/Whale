@@ -1,8 +1,8 @@
+use amd64::AMD64;
 use std::{
     collections::{BTreeMap, BTreeSet},
     path::Path,
 };
-use whale_assembler_amd64::AMD64;
 
 fn manifest(source: &str) -> Result<BTreeMap<&str, (&str, &str, &str)>, String> {
     let mut entries = BTreeMap::new();

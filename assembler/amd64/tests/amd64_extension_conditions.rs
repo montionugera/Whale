@@ -1,7 +1,7 @@
 //! Bytes follow the architectural opcode/prefix/ModRM tables, independent of
 //! an external assembler or Whale's instruction tables.
+use amd64::AMD64;
 use assembler::{assemble, RelocKind};
-use whale_assembler_amd64::AMD64;
 
 fn bytes(src: &str) -> Vec<u8> {
     let out = assemble(src, &AMD64).unwrap_or_else(|e| panic!("{src}: {e}"));

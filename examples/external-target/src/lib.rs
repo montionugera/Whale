@@ -2,10 +2,10 @@
 //! A tiny executable bytecode target, deliberately independent of AMD64.
 //! Encoding: CONST=1,u32 dst,i64; ADD=2,u32 dst,u32 lhs,u32 rhs; RET=3,u32 src.
 use assembler::{AsmError, AsmSection, AsmSectionKind, AssemblerOutput, AssemblyLimits};
+use backend_api::{Artifact, Backend, CheckedModule, Requirement, Support};
+use diagnostic::Diagnostic;
 use ir::{BinOp, ConstValue, Instruction, Terminator, Type};
-use whale_backend_api::{Artifact, Backend, CheckedModule, Requirement, Support};
-use whale_diagnostic::Diagnostic;
-use whale_target::{DataLayout, Endian, MemoryModel, OutputKind, StorageLayout, TargetSpec};
+use target_spec::{DataLayout, Endian, MemoryModel, OutputKind, StorageLayout, TargetSpec};
 
 pub const TARGET: &str = "example-bytecode-v1";
 
@@ -23,7 +23,7 @@ pub fn target() -> TargetSpec {
     }
 }
 
-pub fn register(registry: &mut whale_toolchain::Registry) -> Result<(), String> {
+pub fn register(registry: &mut toolchain::Registry) -> Result<(), String> {
     registry.register_target(target())?;
     registry.register_assembler(ExampleAssembler)?;
     registry.register_backend(ExampleBackend)
@@ -190,7 +190,7 @@ mod tests {
     }
     #[test]
     fn external_backend_and_assembler_run_without_builtin_target_changes() {
-        let mut registry = whale_toolchain::Registry::new();
+        let mut registry = toolchain::Registry::new();
         register(&mut registry).unwrap();
         let artifacts = registry.compile(&module(), ir::IrLimits::default()).unwrap();
         assert_eq!(execute(&artifacts[0].bytes), i64::MIN);
@@ -209,7 +209,7 @@ mod tests {
     }
     #[test]
     fn registration_and_semantic_failures_are_reported() {
-        let mut registry = whale_toolchain::Registry::new();
+        let mut registry = toolchain::Registry::new();
         assert!(registry.register_backend(ExampleBackend).is_err());
         register(&mut registry).unwrap();
         assert!(registry.register_target(target()).is_err());
@@ -228,7 +228,7 @@ mod tests {
         assert!(errors[0]
             .contexts
             .iter()
-            .any(|c| matches!(c, whale_diagnostic::Context::Instruction(2))));
+            .any(|c| matches!(c, diagnostic::Context::Instruction(2))));
         assert!(registry.target(TARGET).is_some());
     }
 }

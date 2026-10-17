@@ -1,5 +1,5 @@
+use amd64::AMD64;
 use assembler::assemble;
-use whale_assembler_amd64::AMD64;
 
 #[test]
 fn expression_overflow_is_an_error_in_every_resolution_path() {

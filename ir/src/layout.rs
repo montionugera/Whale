@@ -57,7 +57,7 @@ pub fn layout_of_with_limit(
 /// Layout for an explicitly supplied target, including out-of-tree targets.
 pub fn layout_for_target(
     ty: &Type,
-    target: &whale_target::TargetSpec,
+    target: &target_spec::TargetSpec,
     max_depth: usize,
 ) -> Result<TypeLayout, LayoutError> {
     target.validate().map_err(|_| LayoutError::InvalidTarget)?;
@@ -66,7 +66,7 @@ pub fn layout_for_target(
 
 fn layout_storage(
     ty: &Type,
-    storage: &whale_target::StorageLayout,
+    storage: &target_spec::StorageLayout,
     max_depth: usize,
 ) -> Result<TypeLayout, LayoutError> {
     let scalar =
@@ -128,7 +128,7 @@ pub fn allocation_align(ty: &Type, target: Target) -> Result<u32, LayoutError> {
 
 pub fn allocation_align_for_target(
     ty: &Type,
-    target: &whale_target::TargetSpec,
+    target: &target_spec::TargetSpec,
 ) -> Result<u32, LayoutError> {
     let layout = layout_for_target(ty, target, 128)?;
     Ok(match target.storage.large_array {

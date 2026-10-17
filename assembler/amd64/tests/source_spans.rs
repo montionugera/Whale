@@ -1,10 +1,10 @@
+use amd64::AMD64;
 use assembler::{
     assemble_named,
     tokens::{tokenize, TokenKind},
     traits::ISA,
     AsmError, SourceSpan,
 };
-use whale_assembler_amd64::AMD64;
 
 fn diagnostic(src: &str) -> (String, SourceSpan, Option<SourceSpan>, String) {
     match assemble_named("source/한글.asm", src, &AMD64).err().expect("invalid source") {

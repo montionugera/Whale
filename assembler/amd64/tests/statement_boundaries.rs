@@ -1,8 +1,8 @@
+use amd64::AMD64;
 use assembler::{
     assemble,
     tokens::{tokenize, TokenKind},
 };
-use whale_assembler_amd64::AMD64;
 
 fn bytes(src: &str) -> Vec<u8> {
     assemble(src, &AMD64).unwrap().sections.into_iter().flat_map(|s| s.data).collect()

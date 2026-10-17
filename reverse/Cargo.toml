@@ -10,7 +10,7 @@ wave = []
 
 [dev-dependencies]
 assembler = { path = "../assembler" }
-whale-assembler-amd64 = { path = "../assembler-amd64" }
+amd64 = { path = "../assembler/amd64" }
 
 [dependencies]
 object = { path = "../object" }

@@ -1,5 +1,5 @@
 [package]
-name = "whale-example-target"
+name = "external-target"
 version = "0.1.0"
 edition = "2021"
 rust-version.workspace = true
@@ -8,7 +8,7 @@ publish = false
 [dependencies]
 assembler = { path = "../../assembler" }
 ir = { path = "../../ir" }
-whale-target = { path = "../../target-spec" }
-whale-backend-api = { path = "../../backend-api" }
-whale-toolchain = { path = "../../toolchain" }
-whale-diagnostic = { path = "../../diagnostic" }
+target-spec = { path = "../../target-spec" }
+backend-api = { path = "../../backend-api" }
+toolchain = { path = "../../toolchain" }
+diagnostic = { path = "../../diagnostic" }

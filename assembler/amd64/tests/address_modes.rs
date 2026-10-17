@@ -1,5 +1,5 @@
+use amd64::AMD64;
 use assembler::assemble;
-use whale_assembler_amd64::AMD64;
 
 fn bytes(source: &str) -> Vec<u8> {
     assemble(source, &AMD64).unwrap_or_else(|e| panic!("{source}: {e}")).sections.remove(0).data

@@ -1,10 +1,10 @@
 // SPDX-License-Identifier: MPL-2.0
 //! Explicit composition root. No built-in ISA, global state, or dynamic loader.
 use assembler::extension::Assembler;
+use backend_api::{Artifact, Backend};
+use diagnostic::Diagnostic;
 use std::collections::{btree_map::Entry, BTreeMap};
-use whale_backend_api::{Artifact, Backend};
-use whale_diagnostic::Diagnostic;
-use whale_target::TargetSpec;
+use target_spec::TargetSpec;
 
 #[derive(Default)]
 pub struct Registry {
@@ -100,6 +100,6 @@ impl Registry {
         };
         let target = self.target(&module.target).ok_or_else(missing)?;
         let backend = self.backend(&module.target).ok_or_else(missing)?;
-        whale_backend_api::compile(backend, module, target, limits)
+        backend_api::compile(backend, module, target, limits)
     }
 }

@@ -1,7 +1,7 @@
+use amd64::AMD64;
 use assembler::ast::MemoryOperand;
-use whale_assembler_amd64::AMD64;
 
-use whale_assembler_amd64::encoding::encode_address;
+use amd64::encoding::encode_address;
 
 use assembler::assemble;
 
