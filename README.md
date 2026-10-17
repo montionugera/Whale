@@ -796,3 +796,7 @@ Wave checkout; ordinary Cargo never downloads or bootstraps a compiler. See the
 module guide for byte, encoding, unsupported-instruction and build contracts.
 The supported decoding scope is integer/scalar-SSE AMD64 long mode, not complete
 x86 coverage or recovery of original source code.
+
+## Target extensions
+
+See [MODULARITY.md](MODULARITY.md) for crate boundaries, out-of-tree assembler/backend registration, and the executable external-target example.

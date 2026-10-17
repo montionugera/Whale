@@ -135,6 +135,7 @@ dependencies = [
  "assembler",
  "object",
  "serde_json",
+ "whale-assembler-amd64",
 ]
 
 [[package]]
@@ -245,6 +246,25 @@ dependencies = [
  "serde",
  "serde_json",
  "tempfile",
+ "whale-assembler-amd64",
+ "whale-toolchain",
+]
+
+[[package]]
+name = "whale-assembler-amd64"
+version = "0.1.0"
+dependencies = [
+ "assembler",
+ "whale-diagnostic",
+]
+
+[[package]]
+name = "whale-backend-api"
+version = "0.1.0"
+dependencies = [
+ "ir",
+ "whale-diagnostic",
+ "whale-target",
 ]
 
 [[package]]
@@ -252,8 +272,31 @@ name = "whale-diagnostic"
 version = "0.1.0"
 
 [[package]]
+name = "whale-example-target"
+version = "0.1.0"
+dependencies = [
+ "assembler",
+ "ir",
+ "whale-backend-api",
+ "whale-diagnostic",
+ "whale-target",
+ "whale-toolchain",
+]
+
+[[package]]
 name = "whale-target"
 version = "0.1.0"
+
+[[package]]
+name = "whale-toolchain"
+version = "0.1.0"
+dependencies = [
+ "assembler",
+ "ir",
+ "whale-backend-api",
+ "whale-diagnostic",
+ "whale-target",
+]
 
 [[package]]
 name = "winapi-util"

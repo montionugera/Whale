@@ -1,0 +1,11 @@
+[package]
+name = "whale-assembler-amd64"
+version = "0.1.0"
+edition = "2021"
+rust-version.workspace = true
+
+[dependencies]
+assembler = { path = "../assembler" }
+
+[dev-dependencies]
+whale-diagnostic = { path = "../diagnostic" }

@@ -63,7 +63,7 @@ For a focused regression, start with the affected component:
 
 | Component | Source and test locations | Focused command from the repository root |
 | --- | --- | --- |
-| Assembler | [assembler/src/](assembler/src/) and [assembler/tests/](assembler/tests/) | `cargo test -p assembler --locked` |
+| Assembler | [assembler/src/](assembler/src/) and [assembler-amd64/](assembler-amd64/) | `cargo test -p whale-assembler-amd64 --locked` |
 | Object | [object/src/](object/src/) | `cargo test -p object --locked` |
 | IR | [ir/src/](ir/src/) and [ir/tests/](ir/tests/) | `cargo test -p ir --all-features --locked` |
 | Linker | [linker/src/](linker/src/) | `cargo test -p linker --locked` |
@@ -270,3 +270,5 @@ licensing, sign-off, review, or accurate validation reports. Do not infer a
 blanket permission exception from the availability of a contribution tool.
 
 Thank you for helping make Whale's toolchain and contributor experience better.
+
+Target and assembler extension contracts: [MODULARITY.md](MODULARITY.md).
