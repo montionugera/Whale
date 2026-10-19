@@ -498,8 +498,7 @@ pub fn read_elf_with_usage(
                 }
             },
             3 => {
-                if section.flags != 0
-                    || !is_string_table(view.range(section.offset, section.size)?)
+                if section.flags != 0 || !is_string_table(view.range(section.offset, section.size)?)
                 {
                     return Err(error(Kind::InvalidName, "invalid ELF string table").section(index));
                 }
